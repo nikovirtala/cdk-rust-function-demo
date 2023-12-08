@@ -119,7 +119,8 @@
       "description": "Runs eslint against the codebase",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools projenrc .projenrc.ts"
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
+          "receiveArgs": true
         }
       ]
     },
@@ -160,7 +161,25 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation"
+      "description": "Prepare the project for compilation",
+      "steps": [
+        {
+          "spawn": "rust-deps"
+        }
+      ]
+    },
+    "rust-deps": {
+      "name": "rust-deps",
+      "steps": [
+        {
+          "exec": "brew install rustup zig",
+          "condition": "[ -z \"$CI\" ]"
+        },
+        {
+          "exec": "cargo install cargo-lambda",
+          "condition": "[ -z \"$CI\" ]"
+        }
+      ]
     },
     "synth": {
       "name": "synth",
@@ -197,13 +216,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,aws-cdk,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,prettier,projen,ts-node,typescript,aws-cdk-lib,constructs"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/node,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,projen,ts-node,typescript,cargo-lambda-cdk"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript aws-cdk-lib constructs"
+          "exec": "yarn upgrade @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript aws-cdk-lib cargo-lambda-cdk constructs"
         },
         {
           "exec": "npx projen"

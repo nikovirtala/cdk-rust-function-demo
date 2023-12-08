@@ -2,22 +2,21 @@
   "dependencies": [
     {
       "name": "@types/node",
-      "version": "^18",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/eslint-plugin",
-      "version": "^6",
+      "version": "^7",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
-      "version": "^6",
+      "version": "^7",
       "type": "build"
     },
     {
       "name": "aws-cdk",
-      "version": "^2.114.1",
+      "version": "^2.165.0",
       "type": "build"
     },
     {
@@ -63,7 +62,11 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.114.1",
+      "version": "^2.165.0",
+      "type": "runtime"
+    },
+    {
+      "name": "cargo-lambda-cdk",
       "type": "runtime"
     },
     {
