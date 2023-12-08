@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.114.1",
-    "constructs": "^10.0.5"
+    "constructs": "^10.0.5",
+    "rust.aws-cdk-lambda": "^1.2.1"
   },
   "license": "Apache-2.0",
   "version": "0.0.0",
