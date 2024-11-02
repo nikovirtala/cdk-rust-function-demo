@@ -1,6 +1,6 @@
 import { awscdk } from "projen";
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: "2.114.1",
+  cdkVersion: "2.165.0",
   defaultReleaseBranch: "main",
   deps: ["rust.aws-cdk-lambda"],
   jest: false,

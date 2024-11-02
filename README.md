@@ -3,11 +3,7 @@
 Based on https://github.com/rnag/rust.aws-cdk-lambda/tree/main
 
 ```sh
-brew install zig rustup-init
-```
-
-```sh
-rustup-init
+brew install zig rustup
 ```
 
 ```sh
