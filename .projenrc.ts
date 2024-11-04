@@ -3,6 +3,15 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: "2.165.0",
   defaultReleaseBranch: "main",
   deps: ["rust.aws-cdk-lambda"],
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ["auto-approve", "auto-merge"],
+    },
+  },
+  autoApproveOptions: {
+    secret: "GITHUB_TOKEN",
+    allowedUsernames: ["nikovirtala"],
+  },
   jest: false,
   name: "cdk-rust-function-demo",
   prettier: true,
