@@ -172,7 +172,24 @@
       "name": "rustup",
       "steps": [
         {
-          "exec": "brew install rustup zig"
+          "exec": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+          "condition": "[ -n \"$CI\" ]"
+        },
+        {
+          "exec": "/home/linuxbrew/.linuxbrew/bin/brew shellenv > ${HOME}/brewenv",
+          "condition": "[ -n \"$CI\" ]"
+        },
+        {
+          "exec": "cat ${HOME}/brewenv",
+          "condition": "[ -n \"$CI\" ]"
+        },
+        {
+          "exec": ". ${HOME}/brewenv",
+          "condition": "[ -n \"$CI\" ]"
+        },
+        {
+          "exec": "brew install rustup zig",
+          "condition": "[ -n \"$CI\" ]"
         },
         {
           "exec": "rustup target add x86_64-unknown-linux-gnu"
@@ -217,13 +234,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/node,@ziglang/cli,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,projen,ts-node,typescript,cargo-lambda-cdk"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/node,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,projen,ts-node,typescript,cargo-lambda-cdk"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @ziglang/cli aws-cdk esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript aws-cdk-lib cargo-lambda-cdk constructs"
+          "exec": "yarn upgrade @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript aws-cdk-lib cargo-lambda-cdk constructs"
         },
         {
           "exec": "npx projen"

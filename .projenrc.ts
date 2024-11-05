@@ -8,7 +8,6 @@ const project = new awscdk.AwsCdkTypeScriptApp({
       labels: ["auto-approve", "auto-merge"],
     },
   },
-  devDeps: ["@ziglang/cli"],
   autoApproveOptions: {
     secret: "GITHUB_TOKEN",
     allowedUsernames: ["nikovirtala"],
@@ -29,7 +28,14 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 project.projectBuild.preCompileTask.prependSpawn(
   project.addTask("rustup", {
     steps: [
-      { exec: "brew install rustup zig" },
+      {
+        exec: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
+        condition: '[ -n "$CI" ]',
+      },
+      { exec: "/home/linuxbrew/.linuxbrew/bin/brew shellenv > ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
+      { exec: "cat ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
+      { exec: ". ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
+      { exec: "brew install rustup zig", condition: '[ -n "$CI" ]' },
       { exec: "rustup target add x86_64-unknown-linux-gnu" },
       { exec: "cargo install cargo-lambda" },
     ],
