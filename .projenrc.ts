@@ -8,6 +8,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
       labels: ["auto-approve", "auto-merge"],
     },
   },
+  devDeps: ["@ziglang/cli"],
   autoApproveOptions: {
     secret: "GITHUB_TOKEN",
     allowedUsernames: ["nikovirtala"],
