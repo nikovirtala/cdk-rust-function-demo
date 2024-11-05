@@ -1,4 +1,4 @@
-import { awscdk } from "projen";
+import { awscdk, JsonPatch } from "projen";
 const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: "2.165.0",
   defaultReleaseBranch: "main",
@@ -25,9 +25,25 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   projenrcTs: true,
 });
 
+project.github?.tryFindWorkflow("build")?.file?.patch(
+  JsonPatch.add("/jobs/build/steps/1", {
+    uses: "mlugg/setup-zig@v1",
+  }),
+);
+
+project.github?.tryFindWorkflow("build")?.file?.patch(
+  JsonPatch.add("/jobs/build/steps/1", {
+    uses: "actions-rust-lang/setup-rust-toolchain@v1",
+    with: {
+      cache: true,
+      toolchain: "stable",
+    },
+  }),
+);
+
 project.projectBuild.preCompileTask.prependSpawn(
   project.addTask("rustup", {
-    steps: [{ exec: "rustup target add aarch64-unknown-linux-gnu" }, { exec: "cargo install cargo-lambda" }],
+    steps: [{ exec: "cargo install cargo-lambda" }],
   }),
 );
 

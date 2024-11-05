@@ -172,9 +172,6 @@
       "name": "rustup",
       "steps": [
         {
-          "exec": "rustup target add aarch64-unknown-linux-gnu"
-        },
-        {
           "exec": "cargo install cargo-lambda"
         }
       ]
