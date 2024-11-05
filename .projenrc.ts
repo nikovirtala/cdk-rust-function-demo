@@ -28,7 +28,11 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
 project.projectBuild.preCompileTask.prependSpawn(
   project.addTask("rustup", {
-    steps: [{ exec: "rustup target add aarch64-unknown-linux-gnu" }, { exec: "cargo install cargo-lambda" }],
+    steps: [
+      { exec: "brew install rustup zig" },
+      { exec: "rustup target add x86_64-unknown-linux-gnu" },
+      { exec: "cargo install cargo-lambda" },
+    ],
   }),
 );
 
