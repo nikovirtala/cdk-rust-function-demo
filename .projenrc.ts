@@ -2,7 +2,7 @@ import { awscdk } from "projen";
 const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: "2.165.0",
   defaultReleaseBranch: "main",
-  deps: ["rust.aws-cdk-lambda"],
+  deps: ["cargo-lambda-cdk"],
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ["auto-approve", "auto-merge"],
