@@ -161,7 +161,23 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation"
+      "description": "Prepare the project for compilation",
+      "steps": [
+        {
+          "spawn": "rustup"
+        }
+      ]
+    },
+    "rustup": {
+      "name": "rustup",
+      "steps": [
+        {
+          "exec": "rustup target add aarch64-unknown-linux-gnu"
+        },
+        {
+          "exec": "cargo install cargo-lambda"
+        }
+      ]
     },
     "synth": {
       "name": "synth",

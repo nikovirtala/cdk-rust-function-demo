@@ -15,6 +15,7 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
+    "rustup": "npx projen rustup",
     "synth": "npx projen synth",
     "synth:silent": "npx projen synth:silent",
     "test": "npx projen test",

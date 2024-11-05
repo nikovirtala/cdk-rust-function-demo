@@ -1,5 +1,6 @@
 import * as path from "path";
 import { App, Stack, StackProps, aws_s3 } from "aws-cdk-lib";
+import { Architecture } from "aws-cdk-lib/aws-lambda";
 import { Construct } from "constructs";
 import { RustFunction } from "rust.aws-cdk-lambda";
 
@@ -10,6 +11,7 @@ export class MyStack extends Stack {
     const bucket = new aws_s3.Bucket(this, "Bucket");
 
     const f = new RustFunction(this, "Function", {
+      architecture: Architecture.ARM_64,
       directory: path.dirname("./Cargo.toml"),
       bin: "lambda",
       environment: {
