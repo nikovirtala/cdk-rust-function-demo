@@ -1,4 +1,4 @@
-import { awscdk } from "projen";
+import { awscdk, JsonPatch } from "projen";
 const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: "2.165.0",
   defaultReleaseBranch: "main",
@@ -25,20 +25,25 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   projenrcTs: true,
 });
 
+project.github?.tryFindWorkflow("build")?.file?.patch(
+  JsonPatch.add("/jobs/build/steps/1", {
+    uses: "mlugg/setup-zig@v1",
+  }),
+);
+
+project.github?.tryFindWorkflow("build")?.file?.patch(
+  JsonPatch.add("/jobs/build/steps/1", {
+    uses: "actions-rust-lang/setup-rust-toolchain@v1",
+    with: {
+      cache: true,
+      toolchain: "stable",
+    },
+  }),
+);
+
 project.projectBuild.preCompileTask.prependSpawn(
   project.addTask("rustup", {
-    steps: [
-      {
-        exec: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
-        condition: '[ -n "$CI" ]',
-      },
-      { exec: "/home/linuxbrew/.linuxbrew/bin/brew shellenv > ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
-      { exec: "cat ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
-      { exec: ". ${HOME}/brewenv", condition: '[ -n "$CI" ]' },
-      { exec: "brew install rustup zig", condition: '[ -n "$CI" ]' },
-      { exec: "rustup target add x86_64-unknown-linux-gnu" },
-      { exec: "cargo install cargo-lambda" },
-    ],
+    steps: [{ exec: "cargo install cargo-lambda" }],
   }),
 );
 

@@ -172,29 +172,6 @@
       "name": "rustup",
       "steps": [
         {
-          "exec": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
-          "condition": "[ -n \"$CI\" ]"
-        },
-        {
-          "exec": "/home/linuxbrew/.linuxbrew/bin/brew shellenv > ${HOME}/brewenv",
-          "condition": "[ -n \"$CI\" ]"
-        },
-        {
-          "exec": "cat ${HOME}/brewenv",
-          "condition": "[ -n \"$CI\" ]"
-        },
-        {
-          "exec": ". ${HOME}/brewenv",
-          "condition": "[ -n \"$CI\" ]"
-        },
-        {
-          "exec": "brew install rustup zig",
-          "condition": "[ -n \"$CI\" ]"
-        },
-        {
-          "exec": "rustup target add x86_64-unknown-linux-gnu"
-        },
-        {
           "exec": "cargo install cargo-lambda"
         }
       ]
