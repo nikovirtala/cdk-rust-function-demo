@@ -3,7 +3,7 @@
 use std::env::var;
 use std::time::Instant;
 
-use lambda_runtime::{handler_fn, Context, Error};
+use lambda_runtime::{service_fn, Error, LambdaEvent};
 use log::{debug, error, info};
 use serde::{Deserialize, Serialize};
 use tracing_subscriber::EnvFilter;
@@ -42,7 +42,7 @@ impl std::fmt::Display for FailureResponse {
 // returned by `lambda_runtime::run(func).await` in `fn main`.
 impl std::error::Error for FailureResponse {}
 
-type Response = Result<SuccessResponse, FailureResponse>;
+type Response = Result<SuccessResponse, lambda_runtime::Error>;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -58,14 +58,15 @@ async fn main() -> Result<(), Error> {
         .init();
 
     let start = Instant::now();
-    let func = handler_fn(my_handler);
+    let func = service_fn(my_handler);
     lambda_runtime::run(func).await?;
     debug!("Call lambda took {:.2?}", start.elapsed());
 
     Ok(())
 }
 
-pub(crate) async fn my_handler(event: Request, ctx: Context) -> Response {
+pub(crate) async fn my_handler(event: LambdaEvent<Request>) -> Response {
+    let (event, ctx) = event.into_parts();
     info!("Request: {:?}", event);
 
     // optional feature flags as defined in `Cargo.toml`. this is enabled
@@ -102,8 +103,7 @@ pub(crate) async fn my_handler(event: Request, ctx: Context) -> Response {
     let filename = format!("{}.txt", time::OffsetDateTime::now_utc().unix_timestamp());
 
     let start = Instant::now();
-
-    let config = aws_config::load_from_env().await;
+    let config = aws_config::load_defaults(aws_config::BehaviorVersion::latest()).await;
     let s3 = aws_sdk_s3::Client::new(&config);
 
     debug!("Created an S3 client in {:.2?}", start.elapsed());
@@ -123,9 +123,9 @@ pub(crate) async fn my_handler(event: Request, ctx: Context) -> Response {
                 &filename, err
             );
             // The sender of the request receives this message in response.
-            FailureResponse {
+            lambda_runtime::Error::from(FailureResponse {
                 body: "The lambda encountered an error and your message was not saved".to_owned(),
-            }
+            })
         })?;
 
     info!(
