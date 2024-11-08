@@ -66,4 +66,6 @@ project.projectBuild.preCompileTask.prependSpawn(
   }),
 );
 
+project.gitignore.addPatterns("/target/");
+
 project.synth();
