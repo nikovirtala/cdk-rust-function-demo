@@ -49,4 +49,5 @@ jspm_packages/
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
+/target/
 !/.projenrc.ts
