@@ -37,11 +37,11 @@
     "prettier": "^3.3.3",
     "projen": "^0.90.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.165.0",
-    "cargo-lambda-cdk": "^0.0.26",
+    "cargo-lambda-cdk": "^0.0.31",
     "constructs": "^10.0.5"
   },
   "license": "Apache-2.0",
