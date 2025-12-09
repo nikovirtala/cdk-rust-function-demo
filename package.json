@@ -28,20 +28,20 @@
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk": "^2",
-    "esbuild": "^0.25.4",
+    "esbuild": "^0.27.1",
     "eslint": "^9",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^9.1.2",
     "eslint-import-resolver-typescript": "^3.10.1",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.4.0",
-    "prettier": "^3.5.3",
-    "projen": "^0.92.7",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.7.4",
+    "projen": "^0.98.28",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.165.0",
-    "cargo-lambda-cdk": "^0.0.33",
+    "cargo-lambda-cdk": "^0.0.36",
     "constructs": "^10.0.5"
   },
   "license": "Apache-2.0",
