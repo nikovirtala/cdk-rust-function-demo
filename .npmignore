@@ -2,8 +2,6 @@
 /.projen/
 permissions-backup.acl
 /.mergify.yml
-/.prettierignore
-/.prettierrc.json
 /test/
 /tsconfig.dev.json
 /src/
@@ -17,10 +15,13 @@ dist
 /.idea/
 /.projenrc.js
 tsconfig.tsbuildinfo
-/.eslintrc.json
 !/assets/
 cdk.out/
 .cdk.staging/
+biome.jsonc
+mise.toml
+vitest.config.ts
+/coverage/
 /.gitattributes
 /.projenrc.ts
 /projenrc
