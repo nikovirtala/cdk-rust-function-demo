@@ -43,20 +43,24 @@ demo-function/
 ### Projen-Managed (Do Not Edit Manually)
 - `package.json`: Generated from `.projenrc.ts`
 - `tsconfig.json`, `tsconfig.dev.json`: TypeScript configs
-- `.eslintrc.json`, `.prettierrc.json`: Linting/formatting
+- `biome.jsonc`: Biome linting/formatting configuration
 - `cdk.json`: CDK configuration
+- `vitest.config.ts`: Test configuration
 - `.github/workflows/`: CI/CD workflows
+- `Brewfile`: Homebrew dependencies
 
 ### Source Files (Edit These)
 - `.projenrc.ts`: Project configuration
 - `src/main.ts`: Infrastructure code
 - `demo-function/`: Rust function code
+- `mise.toml`: Tool version management
 
 ## Build Artifacts
 
 - `cdk.out/`: Synthesized CloudFormation templates (gitignored)
 - `target/`: Rust build artifacts (gitignored)
 - `node_modules/`: Node.js dependencies (gitignored)
+- `coverage/`: Test coverage reports
 
 ## Adding New Lambda Functions
 
@@ -66,6 +70,6 @@ demo-function/
 4. Reference in `src/main.ts` using `RustFunction` construct:
    ```typescript
    new RustFunction(this, "MyFunction", {
-     manifestPath: path.join(__dirname, "../my-function/Cargo.toml"),
+     manifestPath: path.join(import.meta.dirname, "../my-function/Cargo.toml"),
    });
    ```

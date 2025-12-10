@@ -1,0 +1,5 @@
+tap "cargo-lambda/tap"
+brew "cargo-lambda/tap/cargo-lambda"
+brew "mise"
+brew "rustup"
+brew "zig"

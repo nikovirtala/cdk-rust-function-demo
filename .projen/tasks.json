@@ -1,5 +1,15 @@
 {
   "tasks": {
+    "biome": {
+      "name": "biome",
+      "description": "Runs Biome against the codebase",
+      "steps": [
+        {
+          "exec": "biome check --no-errors-on-unmatched --write",
+          "receiveArgs": true
+        }
+      ]
+    },
     "build": {
       "name": "build",
       "description": "Full release build",
@@ -69,7 +79,10 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
+          "exec": "tsx --tsconfig tsconfig.dev.json .projenrc.ts"
+        },
+        {
+          "spawn": "install:homebrew"
         }
       ]
     },
@@ -114,16 +127,11 @@
         }
       ]
     },
-    "eslint": {
-      "name": "eslint",
-      "description": "Runs eslint against the codebase",
-      "env": {
-        "ESLINT_USE_FLAT_CONFIG": "false"
-      },
+    "homebrew:bundle": {
+      "name": "homebrew:bundle",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
-          "receiveArgs": true
+          "exec": "command -v brew >/dev/null 2>&1 || eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv 2>/dev/null || /opt/homebrew/bin/brew shellenv 2>/dev/null)\" && brew bundle"
         }
       ]
     },
@@ -132,7 +140,7 @@
       "description": "Install project dependencies and update lockfile (non-frozen)",
       "steps": [
         {
-          "exec": "yarn install --check-files"
+          "exec": "pnpm i --no-frozen-lockfile"
         }
       ]
     },
@@ -141,7 +149,26 @@
       "description": "Install project dependencies using frozen lockfile",
       "steps": [
         {
-          "exec": "yarn install --check-files --frozen-lockfile"
+          "exec": "pnpm i --frozen-lockfile"
+        }
+      ]
+    },
+    "install:homebrew": {
+      "name": "install:homebrew",
+      "steps": [
+        {
+          "exec": "command -v brew >/dev/null 2>&1 || { NONINTERACTIVE=1 /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv 2>/dev/null || /opt/homebrew/bin/brew shellenv 2>/dev/null)\"; }"
+        },
+        {
+          "spawn": "homebrew:bundle"
+        }
+      ]
+    },
+    "mise:trust": {
+      "name": "mise:trust",
+      "steps": [
+        {
+          "exec": "mise trust"
         }
       ]
     },
@@ -164,25 +191,7 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation",
-      "steps": [
-        {
-          "spawn": "rust-deps"
-        }
-      ]
-    },
-    "rust-deps": {
-      "name": "rust-deps",
-      "steps": [
-        {
-          "exec": "brew install rustup zig",
-          "condition": "[ -z \"$CI\" ]"
-        },
-        {
-          "exec": "cargo install cargo-lambda",
-          "condition": "[ -z \"$CI\" ]"
-        }
-      ]
+      "description": "Prepare the project for compilation"
     },
     "synth": {
       "name": "synth",
@@ -207,7 +216,29 @@
       "description": "Run tests",
       "steps": [
         {
-          "spawn": "eslint"
+          "spawn": "biome"
+        },
+        {
+          "exec": "vitest run",
+          "receiveArgs": true
+        }
+      ]
+    },
+    "test:update": {
+      "name": "test:update",
+      "steps": [
+        {
+          "exec": "vitest --update",
+          "receiveArgs": true
+        }
+      ]
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "steps": [
+        {
+          "exec": "vitest watch",
+          "receiveArgs": true
         }
       ]
     },
@@ -219,13 +250,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/node,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,projen,ts-node,typescript,cargo-lambda-cdk"
+          "exec": "pnpm dlx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@nikovirtala/projen-constructs,esbuild,projen,tsx,cargo-lambda-cdk"
         },
         {
-          "exec": "yarn install --check-files"
+          "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "yarn upgrade @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk esbuild eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier projen ts-node typescript aws-cdk-lib cargo-lambda-cdk constructs"
+          "exec": "pnpm update @biomejs/biome @nikovirtala/projen-constructs @types/node aws-cdk esbuild projen tsx typescript vitest @vitest/coverage-v8 aws-cdk-lib cargo-lambda-cdk constructs"
         },
         {
           "exec": "npx projen"
@@ -249,7 +280,7 @@
     }
   },
   "env": {
-    "PATH": "$(npx -c \"node --print process.env.PATH\")"
+    "PATH": "$(pnpm -c exec \"node --print process.env.PATH\")"
   },
   "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"npx projen\"."
 }
