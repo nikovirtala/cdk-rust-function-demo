@@ -1,11 +1,7 @@
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
 import { App, aws_s3, Stack, type StackProps } from "aws-cdk-lib";
 import { RustFunction } from "cargo-lambda-cdk";
 import type { Construct } from "constructs";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export class MyStack extends Stack {
     constructor(scope: Construct, id: string, props: StackProps = {}) {
@@ -17,7 +13,7 @@ export class MyStack extends Stack {
 
         const f = new RustFunction(this, "DemoFunction", {
             // architecture: Architecture.ARM_64,
-            manifestPath: path.join(__dirname, "../demo-function/Cargo.toml"),
+            manifestPath: path.join(import.meta.dirname, "../demo-function/Cargo.toml"),
             bundling: {
                 // cargoLambdaFlags: ["--target", "aarch64-unknown-linux-gnu"],
             },
