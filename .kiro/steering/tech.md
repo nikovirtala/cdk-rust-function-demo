@@ -6,22 +6,23 @@ This project uses **Projen** to manage project configuration and build tasks. Al
 
 ## Languages & Frameworks
 
-- **TypeScript**: CDK infrastructure code (Node.js 18+)
+- **TypeScript**: CDK infrastructure code (Node.js 24.11.1+, ES modules)
 - **Rust**: Lambda function code (stable toolchain, edition 2021)
 
 ## Key Dependencies
 
 ### Infrastructure (TypeScript)
 - `aws-cdk-lib` (v2.165.0): AWS CDK framework
-- `cargo-lambda-cdk`: Construct library for Rust Lambda functions
-- `constructs`: CDK constructs base library
+- `cargo-lambda-cdk` (v0.0.36): Construct library for Rust Lambda functions
+- `constructs` (v10.4.3): CDK constructs base library
 
 ### Lambda Function (Rust)
-- `lambda_runtime`: AWS Lambda runtime for Rust
-- `aws-config`, `aws-sdk-s3`: AWS SDK for Rust
-- `tokio`: Async runtime
+- `lambda_runtime` (v0.13.0): AWS Lambda runtime for Rust
+- `aws-config` (v1.5.10), `aws-sdk-s3` (v1.60.0): AWS SDK for Rust
+- `tokio` (v1.41.0): Async runtime with macros feature
 - `serde`, `serde_json`: Serialization
-- `tracing`, `tracing-subscriber`: Logging
+- `tracing` (v0.1.40), `tracing-subscriber` (v0.3.18): Logging with env-filter
+- `log` (v0.4), `time` (v0.3.36): Additional logging and time utilities
 
 ## Build Tools
 
@@ -30,13 +31,18 @@ This project uses **Projen** to manage project configuration and build tasks. Al
 - **zig**: Cross-compilation toolchain
 - **cargo-lambda**: Build tool for Rust Lambda functions
 
-Install locally with:
+Install locally with Homebrew (managed via Projen):
 ```bash
-brew install rustup zig
-cargo install cargo-lambda
+# Install via Homebrew (configured in .projenrc.ts)
+npm run install:homebrew
+
+# Or manually:
+brew install rustup zig cargo-lambda/tap/cargo-lambda
 ```
 
-(CI environments install these automatically via GitHub Actions)
+### Tool Management
+- **mise**: Tool version manager (Node.js 24.11.1)
+- **pnpm**: Package manager
 
 ## Common Commands
 
@@ -58,18 +64,24 @@ npm run destroy
 # Show diff against deployed stack
 npm run diff
 
-# Run linter
-npm run eslint
+# Run linter (Biome)
+npm run biome
 
 # Watch mode for development
 npm run watch
 
+# Run tests
+npm run test
+
 # Upgrade dependencies
 npm run upgrade
+
+# Install Homebrew dependencies
+npm run install:homebrew
 ```
 
 ## Code Style
 
-- **Prettier** configured for TypeScript (120 char line width, semicolons, double quotes)
-- **ESLint** with TypeScript rules
+- **Biome** configured for TypeScript/JavaScript (120 char line width, 4-space indent, double quotes)
+- **No ESLint or Prettier** - using Biome instead
 - Rust follows standard `rustfmt` conventions
