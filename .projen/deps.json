@@ -6,6 +6,10 @@
       "type": "build"
     },
     {
+      "name": "@nikovirtala/projen-constructs",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "version": "^24",
       "type": "build"

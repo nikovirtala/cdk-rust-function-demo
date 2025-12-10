@@ -21,6 +21,9 @@ importers:
       '@biomejs/biome':
         specifier: ^2
         version: 2.3.8
+      '@nikovirtala/projen-constructs':
+        specifier: ^0.2.34
+        version: 0.2.34(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.232.1(constructs@10.4.3))(constructs@10.4.3))(constructs@10.4.3)(projen@0.98.29(constructs@10.4.3))
       '@types/node':
         specifier: ^24
         version: 24.10.2
@@ -456,6 +459,23 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@mrgrain/cdk-esbuild@5.7.5':
+    resolution: {integrity: sha512-8/o0ZJWdSZXflN/PRE6By3ws/vZQtwAShM79lPDOpHoUthsA2U07JxygNTjjL9pCSzp7hi4ar5UR7G0LZxBKOQ==}
+    peerDependencies:
+      aws-cdk-lib: ^2.51.0
+      constructs: ^10.0.5
+
+  '@nikovirtala/projen-constructs@0.2.34':
+    resolution: {integrity: sha512-cxywcYeJesvG0ZfcpEx4TSgqL0HhksUo9975ec715pvphwfwqVMGc4Gl/2Nb0g3U5eFLmWBpjTv9GmbaqTZ7pQ==}
+    engines: {node: '>= 24.11.1'}
+    peerDependencies:
+      '@mrgrain/cdk-esbuild': ^5.7.5
+      constructs: ^10.4.3
+      projen: ^0.98.29
+    bundledDependencies:
+      - '@mrgrain/jsii-struct-builder'
+      - case
 
   '@rollup/rollup-android-arm-eabi@4.53.3':
     resolution: {integrity: sha512-mRSi+4cBjrRLoaal2PnqH82Wqyb+d3HsPUN/W+WslCXsZsyHa9ZeQQX/pQsZaVIWDkPcpV6jJ+3KLbTbgnwv8w==}
@@ -1158,6 +1178,19 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.232.1(constructs@10.4.3))(constructs@10.4.3)':
+    dependencies:
+      aws-cdk-lib: 2.232.1(constructs@10.4.3)
+      constructs: 10.4.3
+    optionalDependencies:
+      esbuild: 0.25.12
+
+  '@nikovirtala/projen-constructs@0.2.34(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.232.1(constructs@10.4.3))(constructs@10.4.3))(constructs@10.4.3)(projen@0.98.29(constructs@10.4.3))':
+    dependencies:
+      '@mrgrain/cdk-esbuild': 5.7.5(aws-cdk-lib@2.232.1(constructs@10.4.3))(constructs@10.4.3)
+      constructs: 10.4.3
+      projen: 0.98.29(constructs@10.4.3)
 
   '@rollup/rollup-android-arm-eabi@4.53.3':
     optional: true

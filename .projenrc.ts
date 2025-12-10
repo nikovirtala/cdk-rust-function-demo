@@ -6,6 +6,7 @@ const project = new AwsCdkTypeScriptAppProject({
   defaultReleaseBranch: "main",
   name: "cdk-rust-function-demo",
   deps: ["cargo-lambda-cdk"],
+  devDeps: ["@nikovirtala/projen-constructs"],
 });
 
 // Add Rust build tools via Homebrew
