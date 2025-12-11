@@ -26,10 +26,10 @@ importers:
         version: 0.2.34(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.232.1(constructs@10.4.3))(constructs@10.4.3))(constructs@10.4.3)(projen@0.98.29(constructs@10.4.3))
       '@types/node':
         specifier: ^24
-        version: 24.10.2
+        version: 24.10.3
       '@vitest/coverage-v8':
         specifier: ^4
-        version: 4.0.15(vitest@4.0.15(@types/node@24.10.2)(tsx@4.21.0))
+        version: 4.0.15(vitest@4.0.15(@types/node@24.10.3)(tsx@4.21.0))
       aws-cdk:
         specifier: ^2
         version: 2.1033.0
@@ -47,7 +47,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4
-        version: 4.0.15(@types/node@24.10.2)(tsx@4.21.0)
+        version: 4.0.15(@types/node@24.10.3)(tsx@4.21.0)
 
 packages:
 
@@ -599,8 +599,8 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
-  '@types/node@24.10.2':
-    resolution: {integrity: sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA==}
+  '@types/node@24.10.3':
+    resolution: {integrity: sha512-gqkrWUsS8hcm0r44yn7/xZeV1ERva/nLgrLxFRUGb7aoNMIJfZJ3AC261zDQuOAKC7MiXai1WCpYc48jAHoShQ==}
 
   '@vitest/coverage-v8@4.0.15':
     resolution: {integrity: sha512-FUJ+1RkpTFW7rQITdgTi93qOCWJobWhBirEPCeXh2SW2wsTlFxy51apDz5gzG+ZEYt/THvWeNmhdAoS9DTwpCw==}
@@ -1269,11 +1269,11 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/node@24.10.2':
+  '@types/node@24.10.3':
     dependencies:
       undici-types: 7.16.0
 
-  '@vitest/coverage-v8@4.0.15(vitest@4.0.15(@types/node@24.10.2)(tsx@4.21.0))':
+  '@vitest/coverage-v8@4.0.15(vitest@4.0.15(@types/node@24.10.3)(tsx@4.21.0))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.0.15
@@ -1286,7 +1286,7 @@ snapshots:
       obug: 2.1.1
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.15(@types/node@24.10.2)(tsx@4.21.0)
+      vitest: 4.0.15(@types/node@24.10.3)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -1299,13 +1299,13 @@ snapshots:
       chai: 6.2.1
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.15(vite@7.2.7(@types/node@24.10.2)(tsx@4.21.0))':
+  '@vitest/mocker@4.0.15(vite@7.2.7(@types/node@24.10.3)(tsx@4.21.0))':
     dependencies:
       '@vitest/spy': 4.0.15
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.2.7(@types/node@24.10.2)(tsx@4.21.0)
+      vite: 7.2.7(@types/node@24.10.3)(tsx@4.21.0)
 
   '@vitest/pretty-format@4.0.15':
     dependencies:
@@ -1570,7 +1570,7 @@ snapshots:
 
   undici-types@7.16.0: {}
 
-  vite@7.2.7(@types/node@24.10.2)(tsx@4.21.0):
+  vite@7.2.7(@types/node@24.10.3)(tsx@4.21.0):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -1579,14 +1579,14 @@ snapshots:
       rollup: 4.53.3
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.10.2
+      '@types/node': 24.10.3
       fsevents: 2.3.3
       tsx: 4.21.0
 
-  vitest@4.0.15(@types/node@24.10.2)(tsx@4.21.0):
+  vitest@4.0.15(@types/node@24.10.3)(tsx@4.21.0):
     dependencies:
       '@vitest/expect': 4.0.15
-      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.2)(tsx@4.21.0))
+      '@vitest/mocker': 4.0.15(vite@7.2.7(@types/node@24.10.3)(tsx@4.21.0))
       '@vitest/pretty-format': 4.0.15
       '@vitest/runner': 4.0.15
       '@vitest/snapshot': 4.0.15
@@ -1603,10 +1603,10 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.2.7(@types/node@24.10.2)(tsx@4.21.0)
+      vite: 7.2.7(@types/node@24.10.3)(tsx@4.21.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.10.2
+      '@types/node': 24.10.3
     transitivePeerDependencies:
       - jiti
       - less
