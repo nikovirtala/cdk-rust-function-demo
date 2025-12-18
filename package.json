@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
-    "@nikovirtala/projen-constructs": "^0.2.40",
+    "@nikovirtala/projen-constructs": "^0.2.41",
     "@types/node": "^24",
     "@vitest/coverage-v8": "^4",
     "aws-cdk": "^2",
-    "esbuild": "^0.27.1",
+    "esbuild": "^0.27.2",
     "projen": "^0.98.30",
     "tsx": "^4.21.0",
     "typescript": "5.9.3",
