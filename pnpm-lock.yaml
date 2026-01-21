@@ -22,8 +22,8 @@ importers:
         specifier: ^2
         version: 2.3.11
       '@nikovirtala/projen-constructs':
-        specifier: ^0.2.74
-        version: 0.2.74(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.235.1(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.3(constructs@10.4.5))
+        specifier: ^0.2.75
+        version: 0.2.75(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.235.1(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.4(constructs@10.4.5))
       '@types/node':
         specifier: ^24
         version: 24.10.9
@@ -37,8 +37,8 @@ importers:
         specifier: ^0.27.2
         version: 0.27.2
       projen:
-        specifier: ^0.99.3
-        version: 0.99.3(constructs@10.4.5)
+        specifier: ^0.99.4
+        version: 0.99.4(constructs@10.4.5)
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -466,8 +466,8 @@ packages:
       aws-cdk-lib: ^2.51.0
       constructs: ^10.0.5
 
-  '@nikovirtala/projen-constructs@0.2.74':
-    resolution: {integrity: sha512-jB45est1GX65PzL0yBaUnqTAm4vngcFlUiAQjzDZdUK2idkIMkM0u7EzgCnjzhafonrc4R89F8I+kNwzMgvVIg==}
+  '@nikovirtala/projen-constructs@0.2.75':
+    resolution: {integrity: sha512-syNkn3BVQ1LOwUV1241PxnyNEvya5dOjGEOsErbTxuBf6cI2wIiu63M98FWPzBo1H1Uk7xX2ZeZKFlhBBbUaOg==}
     engines: {node: '>= 24.13.0'}
     peerDependencies:
       '@mrgrain/cdk-esbuild': ^5.7.8
@@ -781,8 +781,8 @@ packages:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  projen@0.99.3:
-    resolution: {integrity: sha512-/yqcZMOex4ALwfm36f5VwbT9Fi5ocluxJaqeRNvM+7tw7sSlXhxgHk4FPYBsB0g5lwfupCZf3ueqv3t9P4FI5A==}
+  projen@0.99.4:
+    resolution: {integrity: sha512-v0s2ZETSj8nXKswi59lWsqcoX0wLvJzkgCjVytgStGD+ZYWmaC0ndBzx8r88wEb82zDE9/t56Mfy/eEs1Dr6iA==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -1170,11 +1170,11 @@ snapshots:
     optionalDependencies:
       esbuild: 0.25.12
 
-  '@nikovirtala/projen-constructs@0.2.74(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.235.1(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.3(constructs@10.4.5))':
+  '@nikovirtala/projen-constructs@0.2.75(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.235.1(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.4(constructs@10.4.5))':
     dependencies:
       '@mrgrain/cdk-esbuild': 5.7.5(aws-cdk-lib@2.235.1(constructs@10.4.5))(constructs@10.4.5)
       constructs: 10.4.5
-      projen: 0.99.3(constructs@10.4.5)
+      projen: 0.99.4(constructs@10.4.5)
 
   '@rollup/rollup-android-arm-eabi@4.53.3':
     optional: true
@@ -1467,7 +1467,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  projen@0.99.3(constructs@10.4.5):
+  projen@0.99.4(constructs@10.4.5):
     dependencies:
       constructs: 10.4.5
 
