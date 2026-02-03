@@ -10,10 +10,10 @@ importers:
     dependencies:
       aws-cdk-lib:
         specifier: ^2.165.0
-        version: 2.236.0(constructs@10.4.5)
+        version: 2.237.0(constructs@10.4.5)
       cargo-lambda-cdk:
         specifier: ^0.0.36
-        version: 0.0.36(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5)
+        version: 0.0.36(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5)
       constructs:
         specifier: ^10.4.3
         version: 10.4.5
@@ -22,8 +22,8 @@ importers:
         specifier: ^2
         version: 2.3.13
       '@nikovirtala/projen-constructs':
-        specifier: ^0.2.87
-        version: 0.2.87(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.9(constructs@10.4.5))
+        specifier: ^0.2.88
+        version: 0.2.88(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.9(constructs@10.4.5))
       '@types/node':
         specifier: ^24
         version: 24.10.9
@@ -470,11 +470,11 @@ packages:
       aws-cdk-lib: ^2.51.0
       constructs: ^10.0.5
 
-  '@nikovirtala/projen-constructs@0.2.87':
-    resolution: {integrity: sha512-jSb7huSgVF5jcrPY93pzee4tOX1o4LKKZphgnpXU7veRqM91+ucIVmMVhPH5XfnWeAxF1FgejmeeIASXynq7IA==}
+  '@nikovirtala/projen-constructs@0.2.88':
+    resolution: {integrity: sha512-f46oneg98WGWlS27hXHUzVC/EPSeGpGEKuGVYerDkVGhPQ8Qa8RBBHwUvn/+cw4X0anyBk4EBQUrnwn6cTvhTQ==}
     engines: {node: '>= 24.13.0'}
     peerDependencies:
-      '@mrgrain/cdk-esbuild': ^5.7.10
+      '@mrgrain/cdk-esbuild': ^5.7.11
       constructs: ^10.4.5
       projen: ^0.99.9
     bundledDependencies:
@@ -662,8 +662,8 @@ packages:
   ast-v8-to-istanbul@0.3.10:
     resolution: {integrity: sha512-p4K7vMz2ZSk3wN8l5o3y2bJAoZXT3VuJI5OLTATY/01CYWumWvwkUw0SqDBnNq6IiTO3qDa1eSQDibAV8g7XOQ==}
 
-  aws-cdk-lib@2.236.0:
-    resolution: {integrity: sha512-LauY4BX8vdYL9DvVKCgtJ2gZBwLEgfszTlFe6R2p2NUfEJ+PPpeRGxUbTaOdwLqJGN6mDqmzdoF4or8l2v69PA==}
+  aws-cdk-lib@2.237.0:
+    resolution: {integrity: sha512-uFQ9OKL1jDYguIA9ZniOsvnUt+CZSSXqVec9XP7SjDR5Mys19VsSiMTChBrTywoWDxdjdiVfYE0bmaH2nzV7Cg==}
     engines: {node: '>= 18.0.0'}
     peerDependencies:
       constructs: ^10.0.0
@@ -1173,16 +1173,16 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5)':
+  '@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5)':
     dependencies:
-      aws-cdk-lib: 2.236.0(constructs@10.4.5)
+      aws-cdk-lib: 2.237.0(constructs@10.4.5)
       constructs: 10.4.5
     optionalDependencies:
       esbuild: 0.25.12
 
-  '@nikovirtala/projen-constructs@0.2.87(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.9(constructs@10.4.5))':
+  '@nikovirtala/projen-constructs@0.2.88(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5))(constructs@10.4.5)(projen@0.99.9(constructs@10.4.5))':
     dependencies:
-      '@mrgrain/cdk-esbuild': 5.7.5(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5)
+      '@mrgrain/cdk-esbuild': 5.7.5(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5)
       constructs: 10.4.5
       projen: 0.99.9(constructs@10.4.5)
 
@@ -1328,7 +1328,7 @@ snapshots:
       estree-walker: 3.0.3
       js-tokens: 9.0.1
 
-  aws-cdk-lib@2.236.0(constructs@10.4.5):
+  aws-cdk-lib@2.237.0(constructs@10.4.5):
     dependencies:
       '@aws-cdk/asset-awscli-v1': 2.2.263
       '@aws-cdk/asset-node-proxy-agent-v6': 2.1.0
@@ -1337,9 +1337,9 @@ snapshots:
 
   aws-cdk@2.1104.0: {}
 
-  cargo-lambda-cdk@0.0.36(aws-cdk-lib@2.236.0(constructs@10.4.5))(constructs@10.4.5):
+  cargo-lambda-cdk@0.0.36(aws-cdk-lib@2.237.0(constructs@10.4.5))(constructs@10.4.5):
     dependencies:
-      aws-cdk-lib: 2.236.0(constructs@10.4.5)
+      aws-cdk-lib: 2.237.0(constructs@10.4.5)
       constructs: 10.4.5
 
   chai@6.2.2: {}
