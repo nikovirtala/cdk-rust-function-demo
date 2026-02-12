@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2",
-    "@nikovirtala/projen-constructs": "^0.2.96",
+    "@nikovirtala/projen-constructs": "^0.2.97",
     "@types/node": "^24",
     "@vitest/coverage-v8": "^4",
     "aws-cdk": "^2",
@@ -46,7 +46,7 @@
   },
   "pnpm": {},
   "engines": {
-    "node": ">= 24.13.0"
+    "node": ">= 24.13.1"
   },
   "license": "Apache-2.0",
   "publishConfig": {
