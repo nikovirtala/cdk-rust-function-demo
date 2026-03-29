@@ -23,7 +23,7 @@ importers:
         version: 2.4.9
       '@nikovirtala/projen-constructs':
         specifier: ^0.2.136
-        version: 0.2.136(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.245.0(constructs@10.6.0))(constructs@10.6.0))(constructs@10.6.0)(projen@0.99.25(constructs@10.6.0))
+        version: 0.2.136(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.245.0(constructs@10.6.0))(constructs@10.6.0))(constructs@10.6.0)(projen@0.99.26(constructs@10.6.0))
       '@types/node':
         specifier: ^24
         version: 24.12.0
@@ -37,8 +37,8 @@ importers:
         specifier: ^0.27.4
         version: 0.27.4
       projen:
-        specifier: ^0.99.25
-        version: 0.99.25(constructs@10.6.0)
+        specifier: ^0.99.26
+        version: 0.99.26(constructs@10.6.0)
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
@@ -812,8 +812,8 @@ packages:
     resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  projen@0.99.25:
-    resolution: {integrity: sha512-9A9G6pnav5Cb0aJK8fFsvwIhilbxY+8ky5VhshkSRHAi0feEHRqHChzOvKBCCOd2VVVFB3aNLHzkf0rtYaHd6A==}
+  projen@0.99.26:
+    resolution: {integrity: sha512-FGaMrSa+BgydIs61enxqgHPePB4r3pOTPFldaN+OmWW65WDWoMyGAqVEb3UaGRtiX6rP9qeQVnvufnEfZfaPRg==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -1202,11 +1202,11 @@ snapshots:
     optionalDependencies:
       esbuild: 0.25.12
 
-  '@nikovirtala/projen-constructs@0.2.136(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.245.0(constructs@10.6.0))(constructs@10.6.0))(constructs@10.6.0)(projen@0.99.25(constructs@10.6.0))':
+  '@nikovirtala/projen-constructs@0.2.136(@mrgrain/cdk-esbuild@5.7.5(aws-cdk-lib@2.245.0(constructs@10.6.0))(constructs@10.6.0))(constructs@10.6.0)(projen@0.99.26(constructs@10.6.0))':
     dependencies:
       '@mrgrain/cdk-esbuild': 5.7.5(aws-cdk-lib@2.245.0(constructs@10.6.0))(constructs@10.6.0)
       constructs: 10.6.0
-      projen: 0.99.25(constructs@10.6.0)
+      projen: 0.99.26(constructs@10.6.0)
 
   '@rollup/rollup-android-arm-eabi@4.60.0':
     optional: true
@@ -1507,7 +1507,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  projen@0.99.25(constructs@10.6.0):
+  projen@0.99.26(constructs@10.6.0):
     dependencies:
       constructs: 10.6.0
 
