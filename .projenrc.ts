@@ -1,5 +1,4 @@
-import { AwsCdkTypeScriptAppProject } from "@nikovirtala/projen-constructs";
-import { Homebrew } from "@nikovirtala/projen-constructs/lib/components/homebrew";
+import { AwsCdkTypeScriptAppProject, Homebrew } from "@nikovirtala/projen-constructs";
 
 const project = new AwsCdkTypeScriptAppProject({
     cdkVersion: "2.165.0",
